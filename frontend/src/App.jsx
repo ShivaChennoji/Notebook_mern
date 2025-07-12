@@ -8,12 +8,9 @@ import Login from './components/auth/login'
 import Signup from './components/auth/signup'
 import Logout from './components/logout'
 
-// Simple authentication check
 const isAuthenticated = () => {
   return !!localStorage.getItem('token');
 };
-
-// Protected route wrapper
 function ProtectedRoute({ children }) {
   const location = useLocation();
   if (!isAuthenticated()) {

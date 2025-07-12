@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 
 const JWT_SECRET = process.env.JWT_SECRET || 'your_jwt_secret';
 
-export const  signup = async (req, res) => {
+const signup = async (req, res) => {
   const { email, password } = req.body;
   try {
     const existingUser = await User.findOne({ email });
@@ -20,7 +20,7 @@ export const  signup = async (req, res) => {
   }
 };
 
-export const login = async (req, res) => {
+const login = async (req, res) => {
   const { email, password } = req.body;
   try {
     const user = await User.findOne({ email });
@@ -37,3 +37,5 @@ export const login = async (req, res) => {
     res.status(500).json({ message: 'Login failed', error: err.message });
   }
 };
+
+module.exports = { signup, login };

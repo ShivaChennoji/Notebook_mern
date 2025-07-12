@@ -34,7 +34,7 @@ const Login = () => {
     <div className="login-container">
       <div className="wrapper">
         <form onSubmit={handleSubmit}>
-          <h2>Login</h2>
+          <h2 className="auth-data" >Login</h2>
           <div className="input-field">
             <input type="text"  value={email} onChange={(e) => setEmail(e.target.value)}  required/>
               <label>Enter your email</label>
@@ -44,7 +44,7 @@ const Login = () => {
               <label>Enter your password</label>
           </div>
           <div className="forget">
-            <Link to="//">Forgot password?</Link>
+            <Link to="/">Forgot password?</Link>
           </div>
           <button type="submit">Log In</button>
           <div className="register">

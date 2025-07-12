@@ -17,7 +17,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
-background: #000 url("./login-hero-bg.jpg") center center / cover no-repeat;
+background: #000 url("C:\Users\Alekhya Chennoji\OneDrive\Desktop\test\notebook\NoteBook-MERN-\frontend\src\assets\login-hero-bg.jpg") center center / cover no-repeat;
 z-index: -1;
   background-position: center;
   background-size: cover;
@@ -35,7 +35,7 @@ form {
   display: flex;
   flex-direction: column;
 }
-h2 {
+.auth-data {
   font-size: 2rem;
   margin-bottom: 20px;
   color: #fff;

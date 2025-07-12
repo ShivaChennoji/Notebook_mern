@@ -39,7 +39,7 @@ const Signup = () => {
   return ( <div className="login-container">
       <div className="wrapper">
         <form onSubmit={handleSubmit}>
-          <h2>Sign up</h2>
+          <h2 className="auth-data">Sign up</h2>
           <div className="input-field">
             <input type="text"  value={email} onChange={(e) => setEmail(e.target.value)}  required/>
               <label>Enter your email</label>

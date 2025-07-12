@@ -5,7 +5,7 @@ export default function Navbar() {
     <div className='navbar card'>
       <NavLink to="/">Home</NavLink><br />
       <NavLink to="/notes">New Note</NavLink>
-      <NavLink style={{marginLeft:"60%", fontWeight:"bolder"}} to="/logout">Logout</NavLink>
+      <NavLink to="/logout">Logout</NavLink>
     </div>
   )
 }

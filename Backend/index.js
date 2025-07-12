@@ -9,9 +9,6 @@ const app = express();
 app.use(express.json());
 app.use(cors()); 
 connectDB();
-// Defining routes
-
-// Auth routes
 app.post('/api/signup', AuthController.signup);
 app.post('/api/login', AuthController.login);
 

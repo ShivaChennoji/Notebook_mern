@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './login.css';
-
 import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
@@ -11,7 +10,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:5000/api/login', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -24,9 +23,11 @@ const Login = () => {
           localStorage.setItem('token', data.token);
         }
         navigate('/');
+      } else {
+        alert(data.message || 'Login failed.');
       }
-    } catch (error){
-      alert('An error occurred. Please try again.',error.message); return
+    } catch (error) {
+      alert('An error occurred. Please try again. ' + error.message);
     }
   };
 
@@ -34,14 +35,14 @@ const Login = () => {
     <div className="login-container">
       <div className="wrapper">
         <form onSubmit={handleSubmit}>
-          <h2 className="auth-data" >Login</h2>
+          <h2 className="auth-data">Login</h2>
           <div className="input-field">
-            <input type="text"  value={email} onChange={(e) => setEmail(e.target.value)}  required/>
-              <label>Enter your email</label>
+            <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} required />
+            <label>Enter your email</label>
           </div>
           <div className="input-field">
-            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
-              <label>Enter your password</label>
+            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+            <label>Enter your password</label>
           </div>
           <div className="forget">
             <Link to="/">Forgot password?</Link>

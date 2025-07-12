@@ -7,7 +7,7 @@ export const createNewNote = createAsyncThunk(
       Title: note.title,
       Description: note.content,
     }
-    const response = await fetch('http://localhost:5000/create', {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/create`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload)
@@ -35,7 +35,7 @@ export const createNewNote = createAsyncThunk(
 export const Shownotes = createAsyncThunk(
   'notes/shownotes',
   async (_, { rejectWithValue }) => {
-    const response = await fetch('http://localhost:5000/get', { method: "GET" })
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/get`, { method: "GET" })
     try {
       const result = await response.json()
       if (!result.success) {
@@ -58,7 +58,7 @@ export const Shownotes = createAsyncThunk(
 export const deleteNote = createAsyncThunk(
   'notes/deleteNote',
   async (note, { rejectWithValue }) => {
-    const response = await fetch(`http://localhost:5000/notes/${note.id}`, { method: "DELETE" })
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/notes/${note.id}`, { method: "DELETE" })
     if (!response.ok) {
       return rejectWithValue("Error deleting note")
     }
@@ -82,7 +82,7 @@ export const updateNote = createAsyncThunk(
       Title: note.title,
       Description: note.content,
     }
-    const response = await fetch(`http://localhost:5000/notes/${note.id}`, {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/notes/${note.id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload)
